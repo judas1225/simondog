@@ -1,0 +1,120 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { RocketIcon, CoinsIcon, UsersIcon, SparklesIcon } from "lucide-react"
+import Image from "next/image"
+
+export default function Component() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-yellow-400 text-white">
+      <header className="p-4 flex justify-between items-center bg-black bg-opacity-50 backdrop-blur-md">
+        <div className="flex items-center">
+          <div className="h-16 w-16 mr-2 relative">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image12-8KRBju7Taog1FxzABAnhJJPapSvtJ5.jpg"
+              alt="Simondog mascot"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
+            />
+          </div>
+          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
+            Simondog
+          </h1>
+        </div>
+        <nav>
+          <Button variant="ghost" className="text-white hover:text-yellow-400 transition-colors duration-300">About</Button>
+          <Button variant="ghost" className="text-white hover:text-yellow-400 transition-colors duration-300">Tokenomics</Button>
+          <Button variant="ghost" className="text-white hover:text-yellow-400 transition-colors duration-300">Community</Button>
+        </nav>
+      </header>
+
+      <main className="container mx-auto px-4 py-16">
+        <section className="text-center mb-16 animate-fade-in-down">
+          <h2 className="text-6xl font-extrabold mb-4 text-shadow-glow">Welcome to Simondog</h2>
+          <p className="text-2xl mb-8 text-yellow-300">The most relatable crypto in the meme world! 🚀🐸</p>
+          <Button size="lg" className="animate-bounce bg-gradient-to-r from-yellow-400 to-pink-500 text-white font-bold py-4 px-8 rounded-full text-xl hover:from-pink-500 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105">
+            Buy $SIMON Now
+          </Button>
+        </section>
+
+        <section className="grid md:grid-cols-3 gap-8 mb-16">
+          <FeatureCard
+            icon={<RocketIcon className="h-16 w-16 text-yellow-400" />}
+            title="To The Moon"
+            description="Join us on our journey to crypto stardom!"
+          />
+          <FeatureCard
+            icon={<CoinsIcon className="h-16 w-16 text-yellow-400" />}
+            title="Deflationary"
+            description="Our tokenomics ensure $SIMON's value only goes up!"
+          />
+          <FeatureCard
+            icon={<UsersIcon className="h-16 w-16 text-yellow-400" />}
+            title="Community Driven"
+            description="Powered by the most relatable community in crypto!"
+          />
+        </section>
+
+        <section className="text-center animate-fade-in-up">
+          <h3 className="text-4xl font-bold mb-4 text-shadow-glow">Join the Simondog Pack!</h3>
+          <div className="flex justify-center space-x-4">
+            <Button variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+              <SparklesIcon className="mr-2 h-5 w-5" /> Telegram
+            </Button>
+            <Button variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+              <SparklesIcon className="mr-2 h-5 w-5" /> Twitter
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-black bg-opacity-50 text-white text-center p-4 mt-16">
+        <p className="animate-pulse">© 2024 Simondog. All rights reserved. To the moon! 🌕🚀</p>
+      </footer>
+
+      <style jsx global>{`
+        @keyframes fade-in-down {
+          0% {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-down {
+          animation: fade-in-down 1s ease-out;
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 1s ease-out;
+        }
+        .text-shadow-glow {
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+      `}</style>
+    </div>
+  )
+}
+
+function FeatureCard({ icon, title, description }) {
+  return (
+    <Card className="bg-black bg-opacity-50 border-2 border-yellow-400 hover:border-pink-500 transition-colors duration-300 transform hover:scale-105">
+      <CardContent className="flex flex-col items-center p-6">
+        <div className="mb-4 animate-bounce">{icon}</div>
+        <h3 className="text-2xl font-semibold mb-2 text-yellow-400">{title}</h3>
+        <p className="text-center text-white">{description}</p>
+      </CardContent>
+    </Card>
+  )
+}
